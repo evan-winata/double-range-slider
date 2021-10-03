@@ -1,24 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import classes from "./App.module.scss";
+import { DoubleRangeSlider } from './components/DoubleRangeSlider';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={classes.app}>
+      <div className={classes.sampleRow}>
+        <h3 className={classes.title}>Sample normal slider</h3>
+        <DoubleRangeSlider id="sample" min="0" max="80" lowValue={25} highValue={50} />      
+      </div>
+      <div className={classes.sampleRow}>
+        <h3 className={classes.title}>Sample slider with minimum range set between the thumbs</h3>
+        <DoubleRangeSlider id="sampleMin" min="10" max="50" lowValue={15} highValue={40} minRange={5} />      
+      </div>
+      <div className={classes.sampleRow}>
+        <h3 className={classes.title}>Sample slider with unit</h3>
+        <DoubleRangeSlider id="sampleUnit" min="25" max="150" lowValue={55} highValue={100} unit="cm" />      
+      </div>
     </div>
   );
 }
